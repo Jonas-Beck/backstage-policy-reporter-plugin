@@ -1,0 +1,33 @@
+openapi: 3.0.3
+info:
+  title: policy-reporter
+  version: 1.0.0
+paths:
+  /namespaced-resources/{environment}/results:
+    get:
+      summary: Get namespaced resource results
+      description: description
+      operationId: getNamespacedResourceResults
+      parameters:
+        - name: environment
+          in: path
+          required: true
+          description: Environment entityRef
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+
+components:
+  schemas:
+    Status:
+      type: string
+      description: Status of the result
+      enum:
+        - fail
+        - skip
+        - pass
+        - warn
+        - error
+        - summary
